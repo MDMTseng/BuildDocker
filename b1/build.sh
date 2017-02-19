@@ -1,0 +1,10 @@
+#The environment should be in b1
+[ ! -d ./pybin ]&& echo "please extract pybin folder in the folder with Dockerfile" && exit 1
+
+echo To build this image it needs user Name\&PW
+echo -n UserName:
+read  username
+echo -n "Password:(won't show what you type)"
+read -s password
+docker build --build-arg user=$username --build-arg pw=$password -t b1 .
+exit $?

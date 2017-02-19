@@ -1,0 +1,5 @@
+# Deal with
+*              text = auto
+.bashrc        text eol=lf
+*.sh           text eol=lf
+Dockerfile     text eol=lf

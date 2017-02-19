@@ -117,4 +117,4 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:~/pybin
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin

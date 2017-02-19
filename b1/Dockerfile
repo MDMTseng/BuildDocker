@@ -7,15 +7,15 @@ RUN useradd -m -p $(openssl passwd -crypt $pw) $user
 RUN usermod -a -G sudo $user
 RUN usermod -s /bin/bash $user
 
-COPY /.bashrc /home/$user/.bashrc
+COPY /external/.bashrc /home/$user/.bashrc
 
 #Setup pybin & it's path
-COPY /pybin /home/$user/pybin
+COPY /external/pybin /home/$user/pybin
 RUN echo "PATH=\$PATH:/home/$user/pybin" >> /home/$user/.bashrc
 
 #Setup gcc-arm-none
 ENV GCC_ARM_FILE gcc-arm-none-eabi-4_7-2013q3-20130916-linux
-ADD https://launchpad.net/gcc-arm-embedded/4.7/4.7-2013-q3-update/+download/${GCC_ARM_FILE}.tar.bz2 /home/$user/${GCC_ARM_FILE}.tar.bz2
+COPY /external/${GCC_ARM_FILE}.tar.bz2 /home/$user/${GCC_ARM_FILE}.tar.bz2
 RUN tar xvjf /home/$user/${GCC_ARM_FILE}.tar.bz2 -C /home/$user/
 RUN rm /home/$user/${GCC_ARM_FILE}.tar.bz2
 RUN echo "PATH=\$PATH:/home/$user/gcc-arm-none-eabi-4_7-2013q3/bin" >> /home/$user/.bashrc

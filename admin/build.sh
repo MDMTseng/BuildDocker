@@ -21,7 +21,7 @@ TargetPath=$(echo $TargetPath|awk '{print $1}')
 #Get base image TAG for the target
 BASE_TAG=$(grep "FROM\s" $TargetPath/Dockerfile|sed 's/:FROM / /g'|awk '{print $2}')
 
-echo "To Build $MACH_TAG requires $BASE_TAG.. "
+echo "To Build $MACH_TAG requires ${BASE_TAG:-\"NULL\"}.. "
 if [ ! -z $BASE_TAG ]; then
 	sh $0 $BASE_TAG $ROOT_DIR
 	[ $? -ne 0 ] && exit 1

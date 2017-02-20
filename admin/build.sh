@@ -1,5 +1,10 @@
 MACH_TAG=$1
-ROOT_DIR=$2
+#Set default ROOT as the context
+ROOT_DIR=${2:-"./"}
+if [ -z "$MACH_TAG" ] ;then
+    echo "`basename "$0"` <image tag> <ROOT_DIR(default ./)>"
+		exit 1
+fi
 
 Dockerfile_List=$(find $ROOT_DIR -name Dockerfile)
 
@@ -13,11 +18,16 @@ fi
 
 TargetPath=$(echo $TargetPath|awk '{print $1}')
 
-TargetBase=$(grep "FROM\s" $TargetPath/Dockerfile|sed 's/:FROM / /g'|awk '{print $2}')
+#Get base image TAG for the target
+BASE_TAG=$(grep "FROM\s" $TargetPath/Dockerfile|sed 's/:FROM / /g'|awk '{print $2}')
 
-if [ ! -z $TargetBase ]; then
-	sh $0 $TargetBase $ROOT_DIR
+echo "To Build $MACH_TAG requires $BASE_TAG.. "
+if [ ! -z $BASE_TAG ]; then
+	sh $0 $BASE_TAG $ROOT_DIR
 	[ $? -ne 0 ] && exit 1
+else
+	echo "ERROR: No base image specified in Dockerfile: Check Dockerfile under path $TargetPath"
+	exit 1
 fi
 echo $MACH_TAG
 echo $TargetPath/build.sh

@@ -32,7 +32,7 @@ fi
 echo $MACH_TAG
 echo $TargetPath/build.sh
 if [ -f $TargetPath/build.sh ];then
-	( cd $TargetPath ; sh ./build.sh)
+	( cd $TargetPath ; sh ./build.sh $MACH_TAG)
 else
 	docker build -t $MACH_TAG $TargetPath
 fi

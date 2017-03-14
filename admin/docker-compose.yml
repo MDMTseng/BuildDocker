@@ -1,0 +1,7 @@
+build: ./dir
+
+build:
+  context: ./dir
+  dockerfile: Dockerfile-alternate
+  args:
+    buildno: 1

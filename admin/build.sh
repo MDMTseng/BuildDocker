@@ -12,7 +12,7 @@ TargetPath=$(grep "TAG\s" $Dockerfile_List|sed 's/\/Dockerfile:#TAG / /g'|grep $
 if [ $? -ne 0 ];then
 	echo "No Dockerfile with TAG:$MACH_TAG under ROOT_DIR:$ROOT_DIR"
 	echo "Try pull from docker"
-	docker pull $MACH_TAG
+	#docker pull $MACH_TAG
 	exit $?
 fi
 

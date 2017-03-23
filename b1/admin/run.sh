@@ -5,6 +5,8 @@ username=$1
 [ -z $username ]&& echo "specify your username.."&& exit 1
 docker run -d \
 -p 2022:22 \
+-p 111:111 \
+-p 2049:2049 \
 -v $volumeName:/home/$username/workspace \
 -v b1_AUS:/home/$username/workspace_AUS \
 -v /Users/ctseng/Documents/workspace/BANZAI_X/CHOPES/:/home/$username/CHPX \

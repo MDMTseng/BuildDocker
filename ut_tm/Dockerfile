@@ -4,7 +4,7 @@ FROM ut_b:latest
 
 
 #in orfer to have add-apt-repository
-RUN apt-get install -y software-properties-common
+RUN apt-get update && apt-get install -y software-properties-common
 
 
 

@@ -38,6 +38,8 @@ RUN tar xvjf /home/$user/${GCC_ARM_FILE}.tar.bz2 -C /home/$user/
 RUN rm /home/$user/${GCC_ARM_FILE}.tar.bz2
 RUN echo "PATH=\$PATH:/home/$user/gcc-arm-none-eabi-4_7-2013q3/bin" >> /home/$user/.bashrc
 
+#For perf img -> makeinfo,gawk,chrpath
+RUN apt-get update && apt-get install -y texinfo gawk chrpath
 
 #ssh
 EXPOSE 22

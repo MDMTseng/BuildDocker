@@ -11,5 +11,5 @@ docker run -d \
 -v /Users/ctseng/Documents/workspace/BANZAI_X/CHOPES/:/home/$username/CHPX \
 -v /Library/WebServer/Documents/webup:/home/$username/WEBUP \
 -v /Volumes:/home/$username/Volumes \
-b1
+b_tm
 

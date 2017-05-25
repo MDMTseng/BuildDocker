@@ -13,5 +13,5 @@ echo -n UserName:
 read  username
 echo -n "Password:(won't show what you type)"
 read -s password
-docker build --build-arg user=$username --build-arg pw=$password -t b1 .
+docker build --build-arg user=$username --build-arg pw=$password -t b_tm .
 exit $?

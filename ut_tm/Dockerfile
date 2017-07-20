@@ -32,3 +32,6 @@ RUN update-alternatives --config g++
 #dpkg-reconfigure dash
 #RUN dpkg-reconfigure dash
 RUN apt-get install -y phablet-tools
+
+RUN apt-get install -y  language-pack-en-base python python-pip
+RUN pip install xlrd

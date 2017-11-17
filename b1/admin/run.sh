@@ -8,7 +8,7 @@ docker run -d \
 -p 111:111 \
 -p 2049:2049 \
 -v $volumeName:/home/$username/workspace \
--v /Users/ctseng/Documents/workspace/BANZAI_X/CHOPES/:/home/$username/CHPX \
+-v /Users/ctseng/Documents/workspace/BANZAI_X/:/home/$username/BZ_X \
 -v /Library/WebServer/Documents/webup:/home/$username/WEBUP \
 -v /Volumes:/home/$username/Volumes \
 b1

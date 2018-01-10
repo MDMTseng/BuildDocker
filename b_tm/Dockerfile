@@ -41,6 +41,8 @@ RUN echo "PATH=\$PATH:/home/$user/gcc-arm-none-eabi-4_7-2013q3/bin" >> /home/$us
 #For perf img -> makeinfo,gawk,chrpath
 RUN apt-get update && apt-get install -y texinfo gawk chrpath
 
+#Install zip
+RUN apt-get update && apt-get install -y zip
 #ssh
 EXPOSE 22
 
